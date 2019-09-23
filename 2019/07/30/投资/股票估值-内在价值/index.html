@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>《Java工程师修炼之道》读书笔记 | Hexo</title>
+<title>股票估值-内在价值 | Hexo</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -139,9 +139,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="《Java工程师修炼之道》读书笔记">
+        <h1 id="股票估值-内在价值">
             
-	            《Java工程师修炼之道》读书笔记
+	            股票估值-内在价值
             
         </h1>
         <div class="post-meta">
@@ -149,8 +149,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/读书">
-            读书
+        <a href="/categories/投资">
+            投资
         </a>
     </span>
     
@@ -160,8 +160,16 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/读书" title='读书'>
-                        读书
+                    <a href="/tags/财经" title='财经'>
+                        财经
+                    </a>
+                
+                    <a href="/tags/投资" title='投资'>
+                        投资
+                    </a>
+                
+                    <a href="/tags/炒股" title='炒股'>
+                        炒股
                     </a>
                 
             
@@ -173,7 +181,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2019/07/15</span>
+            <span class="date-meta">2019/07/30</span>
         </span>
     
 </div>
@@ -183,15 +191,90 @@
     </div>
     
     <div class="post-body post-content">
-        <h1 id="《Java工程师修炼之道》读书笔记"><a href="#《Java工程师修炼之道》读书笔记" class="headerlink" title="《Java工程师修炼之道》读书笔记"></a>《Java工程师修炼之道》读书笔记</h1><p><img src="https://xdrt81y.github.io/images/book_java_programmer_path.jpg" alt="Alt text"></p>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>今年的工作目标之一是全栈工程师，公司给定的，开始有些抵触，后面觉得还有点意思，不局限在自己狭小的移动IOS开发中，已经干了四五年了，所有的技术都学了，几乎都用到了。从技术角度，进步的空间确实不大，而且移动的开发趋势也在放生变化，原始开发在传统软件开发企业，越来越不重视。多学点东西还是有好处的，技多不压身。</p>
-<p>最近一个全新项目，开启了真正的全栈开发，分给你的模块，前后端都你自己负责，当然会有人指导。之前一直在前端上发力，前端vue已经用的比较熟练了，可以自己搭脚手架，单独实现一个模块，修复分给我的Bug。后端虽然听过一些大拿的分享，但只停留在PPT上，连开发工具都没装。</p>
-<p>不过，我之前是学过Java的，那是很久以前了，最远从学校开始，大三大四，决定毕业后靠Java起家，于是开始看各种Java书籍，现在想想，最傻的一件事就是，买了本二手的英文版的Thinking In Java啃了两三个月，差点因此而挂科了，后来还看了Struts,Hibernate,Spring。但搞笑的是，我的第一份工作，却是.net程序员，再后来由于没有机会参与Java的项目，换工作就离Java越来越远。</p>
-<p>学习一门语言，最重要的还是动手，去年2018年，听后端的分享，是了解了一些概念，但自己连编译器都没装，其实跟没学是一样，今年转到全栈，真正参与到项目里，环境配置好，开发工具，数据库，本地服务器，自己真正写了几个接口，才感觉从云层里落了下来，虽然对其中一些概念，框架，注解不是很理解，但可以写出自己需要的接口。</p>
-<p>怎么进阶，怎么能知其所以然，还是要拿本好书认真读一下。博客，官网的入门教程，对于Java后端这个庞大体系，都太碎片话，不够系统，一本好书能让你醍醐灌顶，当然书也有缺点，实操性不强，不想博客，看完之后，下面可能有源码连接，直接操练起来。</p>
-<p>回到现在，公司给机会直接参与后端开发，又激起了我的Java梦，一个月的时间，从搭环境，到运行起来公司的项目，到完成这次迭代自己负责模块的所有接口，很顺利，看来有些东西还是能捡起来的，sql,java基础。但也有一些，自己也只是会用，还不知道其所以然。所以需要一本书来提高一下，Java工程师修练之道，进入了我的视野。</p>
-<p>该书主要包括以下几部分：<br>1 后端技术导言<br>2 Java项目与工程化<br>3 开发框架<br>4 Spring<br>5 数据存储<br>6 数据通信<br>7 Java编程进阶<br>8 性能调优<br>9 安全技术</p>
-<p>现在读到该书的第六章 数据通信，该书的实战性不强，大多是从概念，架构方面的讲的，所提到的技术很全面，也会支持目前大公司一般在用的技术是啥，比如Spring有很多版本，现在用的最多的就是spring boot，这跟公司是一致的。有一些技术，目前接触不到，现在也只能了解以下，比如数据存储，想非关系性数据库，缓存redis。</p>
+        <h2 id="采用DCF（现金流贴现估值），计算以下股票的内在价值。"><a href="#采用DCF（现金流贴现估值），计算以下股票的内在价值。" class="headerlink" title="采用DCF（现金流贴现估值），计算以下股票的内在价值。"></a>采用DCF（现金流贴现估值），计算以下股票的内在价值。</h2><p>计算时间 2019-07-30</p>
+<table>
+<thead>
+<tr>
+<th>股票名称</th>
+<th>市价</th>
+<th>总股本（亿）</th>
+<th>下一年度自由现金流（亿元）</th>
+<th>永续年金增长率(g)</th>
+<th>折现率(R)：%</th>
+<th>增长率%</th>
+<th>每股内在价值（10年）</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贵州茅台2009</td>
+<td>90</td>
+<td>10.46</td>
+<td>97.43</td>
+<td>5</td>
+<td>9</td>
+<td>27</td>
+<td><font color="red">1073</font></td>
+<td>无</td>
+</tr>
+<tr>
+<td>贵州茅台2019</td>
+<td>976</td>
+<td>12.56</td>
+<td>982.43</td>
+<td>5</td>
+<td>9</td>
+<td>27</td>
+<td><font color="red">9023.4</font></td>
+<td>乐观估算</td>
+</tr>
+<tr>
+<td>格力电器</td>
+<td>54.62</td>
+<td>60.16</td>
+<td>287.72</td>
+<td>5</td>
+<td>9</td>
+<td>20</td>
+<td><font color="red">343.86</font></td>
+<td>前5年平均25% 保守点给20%</td>
+</tr>
+<tr>
+<td>招商银行</td>
+<td>36.83</td>
+<td>252.2</td>
+<td>5436.83</td>
+<td>3</td>
+<td>9</td>
+<td>11</td>
+<td><font color="red">614</font></td>
+<td>无</td>
+</tr>
+<tr>
+<td>广联达</td>
+<td>33.80</td>
+<td>11.27</td>
+<td>22.1</td>
+<td>3</td>
+<td>9</td>
+<td>8</td>
+<td><font color="red">45.69</font></td>
+<td>无</td>
+</tr>
+<tr>
+<td>用友网络</td>
+<td>29.20</td>
+<td>24.86</td>
+<td>48.5</td>
+<td>5</td>
+<td>9</td>
+<td>17</td>
+<td><font color="red">116.81</font></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
 
     </div>
 
@@ -209,15 +292,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2019/07/30/投资/股票估值-内在价值/" class="pre-post btn btn-default" title='股票估值-内在价值'>
+        <a href="/2019/08/12/读书/《跟巴菲特学投资理念》读书笔记/" class="pre-post btn btn-default" title='《跟巴菲特学投资理念 8条最有价值的投资法则》读书笔记'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">股票估值-内在价值</span>
+            <span class="hidden-xs">《跟巴菲特学投资理念 8条最有价值的投资法则》读书笔记</span>
         </a>
     
     
-        <a href="/2019/07/08/后端-Java 后端自学之路/" class="next-post btn btn-default" title='Java 后端自学之路'>
+        <a href="/2019/07/15/读书/《Java工程师修炼之道》读书笔记/" class="next-post btn btn-default" title='《Java工程师修炼之道》读书笔记'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Java 后端自学之路</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">《Java工程师修炼之道》读书笔记</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -260,7 +343,7 @@
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#《Java工程师修炼之道》读书笔记"><span class="toc-text">《Java工程师修炼之道》读书笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-text">引言</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#采用DCF（现金流贴现估值），计算以下股票的内在价值。"><span class="toc-text">采用DCF（现金流贴现估值），计算以下股票的内在价值。</span></a></li></ol>
         
     </div>
 </aside>
