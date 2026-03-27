@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>韩氏家族“三玉”联合总谱</title>
+    <style>
+        :root { --line-color: #ccc; --node-bg: #fff; --brand-color: #8d704b; }
+        body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #f8f5f0; margin: 0; padding: 20px; }
+        .controls { position: fixed; top: 20px; left: 20px; z-index: 100; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        button { cursor: pointer; background: var(--brand-color); color: white; border: none; padding: 8px 15px; border-radius: 4px; margin-right: 5px; transition: 0.3s; }
+        button:hover { opacity: 0.8; }
+        
+        h1 { text-align: center; color: var(--brand-color); margin-bottom: 5px; }
+        .subtitle { text-align: center; color: #666; font-style: italic; margin-bottom: 30px; }
+
+        /* 树形结构核心 CSS */
+        .tree { white-space: nowrap; min-width: 2000px; padding-top: 50px; }
+        .tree ul { padding-top: 20px; position: relative; transition: all 0.5s; display: flex; }
+        .tree li { float: left; text-align: center; list-style-type: none; position: relative; padding: 20px 5px 0 5px; transition: all 0.5s; }
+        .tree li::before, .tree li::after { content: ''; position: absolute; top: 0; right: 50%; border-top: 2px solid var(--line-color); width: 50%; height: 20px; }
+        .tree li::after { right: auto; left: 50%; border-left: 2px solid var(--line-color); }
+        .tree li:only-child::after, .tree li:only-child::before { display: none; }
+        .tree li:only-child { padding-top: 0; }
+        .tree li:first-child::before, .tree li:last-child::after { border: 0 none; }
+        .tree li:last-child::before { border-right: 2px solid var(--line-color); border-radius: 0 5px 0 0; }
+        .tree li:first-child::after { border-radius: 5px 0 0 0; }
+        .tree ul ul::before { content: ''; position: absolute; top: 0; left: 50%; border-left: 2px solid var(--line-color); width: 0; height: 20px; }
+
+        /* 节点样式 */
+        .node { 
+            border: 2px solid var(--line-color); padding: 10px 15px; text-decoration: none; 
+            color: #333; font-size: 14px; display: inline-block; border-radius: 8px; 
+            background: var(--node-bg); transition: all 0.3s; cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05); min-width: 80px;
+        }
+        .node:hover { border-color: var(--brand-color); transform: translateY(-3px); }
+        .node b { display: block; font-size: 16px; margin-bottom: 4px; }
+        .node span { font-size: 12px; color: #884444; display: block; } /* 配偶样式 */
+        .node i { font-size: 11px; color: #666; display: block; font-style: normal; } /* 小名样式 */
+
+        /* 不同辈分颜色 */
+        .gen-1 { background: #ffedcc; border-color: #f96; }
+        .gen-2 { background: #e6f3ff; border-color: #9cf; }
+        .collapsed ul { display: none; }
+        .has-child { border-bottom: 4px solid var(--brand-color); }
+    </style>
+</head>
+<body>
+
+<div class="controls">
+    <button onclick="expandAll()">全部展开</button>
+    <button onclick="collapseAll()">全部收起</button>
+</div>
+
+<h1>韩氏家族“三玉”联合大总谱</h1>
+<p class="subtitle">包含：秋玉脉、春玉脉、金玉脉 (点击节点展开/收缩单个分支)</p>
+
+<div class="tree" id="familyTree">
+    <ul>
+        <li>
+            <div class="node gen-1"><b>韩氏祖辈</b><i>(三兄弟)</i></div>
+            <ul>
+                <li>
+                    <div class="node gen-2 has-child"><b>韩秋玉</b><span>(配：李氏)</span></div>
+                    <ul>
+                        <li>
+                            <div class="node has-child"><b>韩七十</b><i>小名：怀的</i><span>(配：王氏/张氏)</span></div>
+                            <ul>
+                                <li>
+                                    <div class="node has-child"><b>韩二辰</b><span>(配：李氏)</span></div>
+                                    <ul>
+                                        <li><div class="node has-child"><b>韩换计</b><span>(配：李氏)</span></div><ul>
+                                            <li><div class="node has-child"><b>韩海乐</b><span>(配：王氏)</span></div><ul><li><div class="node"><b>韩一赫</b></div></li><li><div class="node"><b>韩一诺</b></div></li></ul></li>
+                                            <li><div class="node has-child"><b>韩海迪</b><span>(配：赵氏)</span></div><ul><li><div class="node"><b>韩一鸣</b></div></li></ul></li>
+                                        </ul></li>
+                                        <li><div class="node has-child"><b>韩建民</b><span>(配：贾氏)</span></div><ul>
+                                            <li><div class="node has-child"><b>韩海召</b><span>(配：刘氏)</span></div><ul><li><div class="node"><b>韩一宽</b></div></li></ul></li>
+                                            <li><div class="node"><b>韩海欣</b></div></li>
+                                        </ul></li>
+                                        <li><div class="node has-child"><b>韩建平</b><span>(配：谢氏/卢氏)</span></div><ul><li><div class="node"><b>韩海燕</b></div></li><li><div class="node"><b>韩海格</b></div></li></ul></li>
+                                        <li><div class="node has-child"><b>韩建林</b><span>(配：梁氏)</span></div><ul><li><div class="node has-child"><b>韩海洋</b><span>(配：朱氏)</span></div><ul><li><div class="node"><b>韩奕暖</b></div></li><li><div class="node"><b>韩奕冉</b></div></li></ul></li><li><div class="node"><b>韩海娇</b></div></li></ul></li>
+                                        <li><div class="node has-child"><b>韩建伍</b><span>(配：许氏)</span></div><ul><li><div class="node has-child"><b>韩海涛</b><span>(配：贾氏)</span></div><ul><li><div class="node"><b>韩一依</b></div></li></ul></li><li><div class="node"><b>韩小松</b></div></li></ul></li>
+                                        <li><div class="node has-child"><b>韩建文</b><span>(配：张氏)</span></div><ul><li><div class="node has-child"><b>韩小龙</b><span>(配：王氏)</span></div><ul><li><div class="node"><b>韩一沫</b></div></li><li><div class="node"><b>韩一笑</b></div></li></ul></li></ul></li>
+                                    </ul>
+                                </li>
+                                <li><div class="node has-child"><b>韩书辰</b><span>(配：王氏)</span></div><ul><li><div class="node"><b>韩建国</b></div></li><li><div class="node"><b>韩建良</b></div></li><li><div class="node"><b>韩建奎</b></div></li></ul></li>
+                                <li><div class="node has-child"><b>韩永辰</b><span>(配：康氏)</span></div><ul><li><div class="node has-child"><b>韩建会</b><span>(配：王氏)</span></div><ul><li><div class="node"><b>韩旭</b></div></li><li><div class="node"><b>韩若玉</b></div></li></ul></li><li><div class="node"><b>韩金丽</b></div></li></ul></li>
+                                <li><div class="node"><b>韩辰的</b></div></li><li><div class="node"><b>韩君的</b></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="node has-child"><b>韩风山</b><i>小名：牛的</i><span>(配：张氏)</span></div>
+                            <ul>
+                                <li><div class="node has-child"><b>韩福辰</b><span>(配：李氏)</span></div><ul><li><div class="node has-child"><b>韩建宾</b><span>(配：吴氏)</span></div><ul><li><div class="node has-child"><b>韩硕磊</b><span>(配：赵氏)</span></div><ul><li><div class="node"><b>韩昱衡</b></div></li></ul></li><li><div class="node"><b>韩硕青</b></div></li></ul></li><li><div class="node"><b>韩会民</b></div></li><li><div class="node"><b>韩立民</b></div></li></ul></li>
+                                <li><div class="node has-child"><b>韩月辰</b><span>(配：李氏)</span></div><ul><li><div class="node"><b>韩立芬</b></div></li><li><div class="node"><b>韩立星</b></div></li></ul></li>
+                                <li><div class="node"><b>韩福英</b></div></li><li><div class="node"><b>韩福梅</b></div></li><li><div class="node"><b>韩福娥</b></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="node has-child"><b>韩风旗</b><i>小名：驴的</i><span>(配：贾氏)</span></div>
+                            <ul>
+                                <li><div class="node has-child"><b>韩景辰</b><span>(配：杨氏)</span></div><ul>
+                                    <li><div class="node has-child"><b>韩会亮</b></div><ul><li><div class="node has-child"><b>韩刚刚</b><span>(配：常氏)</span></div><ul><li><div class="node"><b>韩一森</b></div></li><li><div class="node"><b>韩一蕊</b></div></li></ul></li><li><div class="node"><b>韩玉</b></div></li><li><div class="node"><b>韩玉倩</b></div></li></ul></li>
+                                    <li><div class="node has-child"><b>韩生亮</b></div><ul><li><div class="node"><b>韩雨帆</b></div></li><li><div class="node"><b>韩玉盼</b></div></li></ul></li>
+                                </ul></li>
+                                <li><div class="node"><b>韩景素</b></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="node"><b>韩香姐</b></div></li><li><div class="node"><b>韩冲的</b></div></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <div class="node gen-2 has-child"><b>韩春玉</b><span>(配：杨氏)</span></div>
+                    <ul>
+                        <li><div class="node has-child"><b>韩风岭</b><i>小名：冬枝</i><span>(配：高氏)</span></div>
+                            <ul>
+                                <li><div class="node has-child"><b>韩福廷</b><i>小名：桃</i><span>(配：周氏)</span></div>
+                                    <ul>
+                                        <li><div class="node has-child"><b>韩建国</b><span>(配：王氏)</span></div><ul><li><div class="node has-child"><b>韩晓杰</b><span>(配：刘氏)</span></div><ul><li><div class="node"><b>韩嘉豪</b></div></li><li><div class="node"><b>韩嘉美</b></div></li></ul></li><li><div class="node"><b>韩晓盼</b></div></li></ul></li>
+                                        <li><div class="node has-child"><b>韩建平</b><span>(配：王氏)</span></div><ul><li><div class="node has-child"><b>韩杰磊</b><span>(配：李氏)</span></div><ul><li><div class="node"><b>韩佳航</b></div></li><li><div class="node"><b>韩佳研</b></div></li></ul></li><li><div class="node"><b>韩晓丛</b></div></li><li><div class="node"><b>韩晓甜</b></div></li></ul></li>
+                                        <li><div class="node has-child"><b>韩建新</b></div><ul><li><div class="node has-child"><b>韩廷</b><span>(配：李氏)</span></div><ul><li><div class="node"><b>韩佳烨</b></div></li><li><div class="node"><b>韩佳怡</b></div></li></ul></li><li><div class="node"><b>韩婉婉</b></div></li></ul></li>
+                                        <li><div class="node"><b>韩素珍/仁果/立娟</b></div></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <div class="node gen-2 has-child"><b>韩金玉</b><span>(配：梁氏)</span></div>
+                    <ul>
+                        <li><div class="node has-child"><b>韩风俊</b><i>小名：狗旦</i><span>(配：刘氏)</span></div>
+                            <ul>
+                                <li><div class="node has-child"><b>韩福来</b><span>(配：张氏)</span></div><ul><li><div class="node has-child"><b>韩兴彬</b><span>(配：张氏)</span></div><ul><li><div class="node"><b>韩晓朋</b></div></li></ul></li><li><div class="node"><b>韩立霞/会霞/立平</b></div></li></ul></li>
+                                <li><div class="node has-child"><b>韩化辰</b><span>(配：张氏)</span></div><ul><li><div class="node has-child"><b>韩立彬</b><span>(配：赵氏)</span></div><ul><li><div class="node has-child"><b>韩旭朋</b><span>(配：曹氏)</span></div></li></ul></li><li><div class="node has-child"><b>韩亚萍</b></div><ul><li><div class="node"><b>韩城俊</b></div></li></ul></li></ul></li>
+                                <li><div class="node"><b>韩彩辰</b><i>(独身)</i></div></li>
+                                <li><div class="node has-child"><b>韩辰方</b><span>(配：高氏)</span></div><ul><li><div class="node"><b>韩孝宾</b><span>(配：苏氏)</span></div></li><li><div class="node"><b>韩阳</b><i>(后代：韩习习)</i></div></li></ul></li>
+                                <li><div class="node"><b>韩素英 / 韩伟英</b></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="node"><b>韩玉的</b><i>(独身)</i></div></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    // 点击节点切换展开/收起
+    document.querySelectorAll('.node').forEach(node => {
+        node.addEventListener('click', function() {
+            const parentLi = this.parentElement;
+            if (parentLi.querySelector('ul')) {
+                parentLi.classList.toggle('collapsed');
+            }
+        });
+    });
+
+    // 全部展开
+    function expandAll() {
+        document.querySelectorAll('li').forEach(li => li.classList.remove('collapsed'));
+    }
+
+    // 全部收起
+    function collapseAll() {
+        document.querySelectorAll('#familyTree > ul > li ul li').forEach(li => {
+            if (li.querySelector('ul')) li.classList.add('collapsed');
+        });
+    }
+</script>
+
+</body>
+</html>
